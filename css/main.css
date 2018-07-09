@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff11d9;
+  background: #cc09e5;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2659,15 +2659,4 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
-}
-@media screen and (min-width: 1200px) {
-  body {
-    background-image: url("/images/comeon.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 50% 50%;
-  }
-  #footer a {
-    color: #eee;
-  }
 }
