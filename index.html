@@ -249,6 +249,296 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhangjiong.top/2018/08/01/hexo命令行使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhang Jiong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zaker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/01/hexo命令行使用/" itemprop="url">前端路由原理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-01T19:57:08+08:00">
+                2018-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前端路由试用场景："><a href="#前端路由试用场景：" class="headerlink" title="前端路由试用场景："></a>前端路由试用场景：</h3><p>单页应用(SPA)。单页应用前后端分离，后台不会提供路由。用户访问一个网址，无论是浏览器地址栏<br>的内容发生变化还是页面发生跳转，后台返回的页面始终只有一个，页面上的变更是通过js来完成的。<br>其中浏览器地址栏的内容发生变化页面显示不同内容，用的就是前端路由。</p>
+<h3 id="前端路由实现方式："><a href="#前端路由实现方式：" class="headerlink" title="前端路由实现方式："></a>前端路由实现方式：</h3><h5 id="1、window-location-hash-hashchange事件"><a href="#1、window-location-hash-hashchange事件" class="headerlink" title="1、window.location.hash+hashchange事件"></a>1、window.location.hash+hashchange事件</h5><p>web服务不会解析#之后的内容，但JS可以通过window.location.hash获取到，读取解析后就可以实现<br>不同的逻辑。hashchange事件可以监听location.hash的变化。该实现方式兼容低版本浏览器。<br>eg.  URL=”<a href="http://www.zhangjiong.com/#/tags&quot;,location.hash=&quot;#/tags&quot;" target="_blank" rel="noopener">www.zhangjiong.com/#/tags&quot;,location.hash=&quot;#/tags&quot;</a>   </p>
+<h5 id="2、history-pushState-popState"><a href="#2、history-pushState-popState" class="headerlink" title="2、history.pushState()+popState"></a>2、history.pushState()+popState</h5><p>history是HTML5才有的新API,可以用来操作浏览器的 session history，pushState会增加一条新的<br>历史记录，而replaceState则会替换当前的历史记录。该方式不会在url中产生上面的#。<br>pushState和replaceState都接收三个参数，分别是：<br><strong>状态对象（state object）</strong>：一个JavaScript对象，与用pushState()方法创建的新历史记录条目关联。<br>    无论何时用户导航到新创建的状态，popstate事件都会被触发，并且事件对象的state属性都包含历史<br>    记录条目的状态对象的拷贝。<br><strong>标题（title）</strong>：FireFox浏览器目前会忽略该参数，虽然以后可能会用上。考虑到未来可能会对该方法<br>    进行修改，传一个空字符串会比较安全。或者，你也可以传入一个简短的标题，标明将要进入的状态。<br><strong>地址（URL）</strong>：新的历史记录条目的地址。浏览器不会在调用pushState()方法后加载该地址，但之后<br>    可能会试图加载，例如用户重启浏览器。新的URL不一定是绝对路径；如果是相对路径，它将以当<br>    前URL为基准；传入的URL与当前URL应该是同源的，否则，pushState()会抛出异常。该参数是可选<br>    的；不指定的话则为文档当前URL。<br>相同之处是两个 API 都会操作浏览器的历史记录，而不会引起页面的刷新</p>
+<h3 id="前端路由优缺点："><a href="#前端路由优缺点：" class="headerlink" title="前端路由优缺点："></a>前端路由优缺点：</h3><h5 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h5><p>1、没有网络延迟，用户体验好<br>2、在某些场景中用ajax请求，可以让页面无刷新，页面变了但Url没有变化，用户就不能复制到想要的地址，<br>    用前端路由做单页面网页就很好的解决了这个问题</p>
+<h5 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h5><p>使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhangjiong.top/2018/08/01/前端路由原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhang Jiong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zaker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/01/前端路由原理/" itemprop="url">前端路由原理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-01T19:57:08+08:00">
+                2018-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前端路由试用场景：<br>单页应用(SPA)。单页应用前后端分离，后台不会提供路由。用户访问一个网址，无论是浏览器地址栏<br>的内容发生变化还是页面发生跳转，后台返回的页面始终只有一个，页面上的变更是通过js来完成的。<br>其中浏览器地址栏的内容发生变化页面显示不同内容，用的就是前端路由。</p>
+<p>前端路由实现方式：<br>1、window.location.hash+hashchange事件<br>web服务不会解析#之后的内容，但JS可以通过window.location.hash获取到，读取解析后就可以实现<br>不同的逻辑。hashchange事件可以监听location.hash的变化。该实现方式兼容低版本浏览器。<br>eg.  URL=”<a href="http://www.zhangjiong.com/#/tags&quot;,location.hash=&quot;#/tags&quot;" target="_blank" rel="noopener">www.zhangjiong.com/#/tags&quot;,location.hash=&quot;#/tags&quot;</a><br>2、history.pushState()+popState<br>history是HTML5才有的新API,可以用来操作浏览器的 session history，pushState会增加一条新的<br>历史记录，而replaceState则会替换当前的历史记录。该方式不会在url中产生上面的#。<br>pushState和replaceState都接收三个参数，分别是：<br>状态对象（state object）：一个JavaScript对象，与用pushState()方法创建的新历史记录条目关联。<br>    无论何时用户导航到新创建的状态，popstate事件都会被触发，并且事件对象的state属性都包含历史<br>    记录条目的状态对象的拷贝。<br>标题（title）：FireFox浏览器目前会忽略该参数，虽然以后可能会用上。考虑到未来可能会对该方法<br>    进行修改，传一个空字符串会比较安全。或者，你也可以传入一个简短的标题，标明将要进入的状态。<br>地址（URL）：新的历史记录条目的地址。浏览器不会在调用pushState()方法后加载该地址，但之后<br>    可能会试图加载，例如用户重启浏览器。新的URL不一定是绝对路径；如果是相对路径，它将以当<br>    前URL为基准；传入的URL与当前URL应该是同源的，否则，pushState()会抛出异常。该参数是可选<br>    的；不指定的话则为文档当前URL。<br>相同之处是两个 API 都会操作浏览器的历史记录，而不会引起页面的刷新</p>
+<p>前端路由优缺点：<br>优点：<br>1、没有网络延迟，用户体验好<br>2、在某些场景中用ajax请求，可以让页面无刷新，页面变了但Url没有变化，用户就不能复制到想要的地址，<br>    用前端路由做单页面网页就很好的解决了这个问题<br>缺点：<br>使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhangjiong.top/2018/07/09/categories/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -652,159 +942,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangjiong.top/2018/06/21/hexo命令行使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhang Jiong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zaker">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/21/hexo命令行使用/" itemprop="url">hexo命令行使使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-21T23:26:47+08:00">
-                2018-06-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="hexo命令行使用"><a href="#hexo命令行使用" class="headerlink" title="hexo命令行使用"></a>hexo命令行使用</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code>hexo help #查看帮助
-hexo init #初始化一个目录  
-hexo new &quot;postName&quot; #新建文章  
-hexo new page &quot;pageName&quot; #新建页面  
-hexo generate #生成网页，可以在 public 目录查看整个网站的文件  
-hexo server #本地预览，&apos;Ctrl+C&apos;关闭  
-hexo deploy #部署.deploy目录  
-hexo clean #清除缓存  **强烈建议每次执行命令前先清理缓存，每次部署前先删除 .deploy 文件夹**
-</code></pre><h2 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h2><pre><code>hexo n == hexo new  
-hexo g == hexo generate  
-hexo s == hexo server  
-hexo d == hexo deploy  
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhangjiong.top/2018/06/04/Hello-ZJ/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1085,7 +1222,7 @@ hexo d == hexo deploy
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1096,7 +1233,7 @@ hexo d == hexo deploy
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1107,7 +1244,7 @@ hexo d == hexo deploy
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

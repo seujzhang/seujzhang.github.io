@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="前端,html," />
 
 
 
@@ -79,14 +79,18 @@
 
 
 
+<meta name="description" content="前端路由试用场景：单页应用(SPA)。单页应用前后端分离，后台不会提供路由。用户访问一个网址，无论是浏览器地址栏的内容发生变化还是页面发生跳转，后台返回的页面始终只有一个，页面上的变更是通过js来完成的。其中浏览器地址栏的内容发生变化页面显示不同内容，用的就是前端路由。 前端路由实现方式：1、window.location.hash+hashchange事件web服务不会解析#之后的内容，但JS可">
+<meta name="keywords" content="前端,html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://zhangjiong.top/2018/07/09/categories/index.html">
+<meta property="og:title" content="前端路由原理">
+<meta property="og:url" content="http://zhangjiong.top/2018/08/01/hexo命令行使用/index.html">
 <meta property="og:site_name" content="Zaker">
+<meta property="og:description" content="前端路由试用场景：单页应用(SPA)。单页应用前后端分离，后台不会提供路由。用户访问一个网址，无论是浏览器地址栏的内容发生变化还是页面发生跳转，后台返回的页面始终只有一个，页面上的变更是通过js来完成的。其中浏览器地址栏的内容发生变化页面显示不同内容，用的就是前端路由。 前端路由实现方式：1、window.location.hash+hashchange事件web服务不会解析#之后的内容，但JS可">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-09T14:24:43.127Z">
+<meta property="og:updated_time" content="2018-08-01T13:30:26.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="前端路由原理">
+<meta name="twitter:description" content="前端路由试用场景：单页应用(SPA)。单页应用前后端分离，后台不会提供路由。用户访问一个网址，无论是浏览器地址栏的内容发生变化还是页面发生跳转，后台返回的页面始终只有一个，页面上的变更是通过js来完成的。其中浏览器地址栏的内容发生变化页面显示不同内容，用的就是前端路由。 前端路由实现方式：1、window.location.hash+hashchange事件web服务不会解析#之后的内容，但JS可">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://zhangjiong.top/2018/07/09/categories/"/>
+  <link rel="canonical" href="http://zhangjiong.top/2018/08/01/hexo命令行使用/"/>
 
 
 
 
 
-  <title>categories | Zaker</title>
+  <title>前端路由原理 | Zaker</title>
   
 
 
@@ -249,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangjiong.top/2018/07/09/categories/">
+    <link itemprop="mainEntityOfPage" href="http://zhangjiong.top/2018/08/01/hexo命令行使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhang Jiong">
@@ -266,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">categories</h1>
+          <h1 class="post-title" itemprop="name headline">前端路由原理</h1>
         
 
         <div class="post-meta">
@@ -278,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-09T22:24:43+08:00">
-                2018-07-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-01T19:57:08+08:00">
+                2018-08-01
               </time>
             
 
@@ -288,6 +292,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -316,7 +342,12 @@
       
 
       
-        
+        <h3 id="前端路由试用场景："><a href="#前端路由试用场景：" class="headerlink" title="前端路由试用场景："></a>前端路由试用场景：</h3><p>单页应用(SPA)。单页应用前后端分离，后台不会提供路由。用户访问一个网址，无论是浏览器地址栏<br>的内容发生变化还是页面发生跳转，后台返回的页面始终只有一个，页面上的变更是通过js来完成的。<br>其中浏览器地址栏的内容发生变化页面显示不同内容，用的就是前端路由。</p>
+<h3 id="前端路由实现方式："><a href="#前端路由实现方式：" class="headerlink" title="前端路由实现方式："></a>前端路由实现方式：</h3><h5 id="1、window-location-hash-hashchange事件"><a href="#1、window-location-hash-hashchange事件" class="headerlink" title="1、window.location.hash+hashchange事件"></a>1、window.location.hash+hashchange事件</h5><p>web服务不会解析#之后的内容，但JS可以通过window.location.hash获取到，读取解析后就可以实现<br>不同的逻辑。hashchange事件可以监听location.hash的变化。该实现方式兼容低版本浏览器。<br>eg.  URL=”<a href="http://www.zhangjiong.com/#/tags&quot;,location.hash=&quot;#/tags&quot;" target="_blank" rel="noopener">www.zhangjiong.com/#/tags&quot;,location.hash=&quot;#/tags&quot;</a>   </p>
+<h5 id="2、history-pushState-popState"><a href="#2、history-pushState-popState" class="headerlink" title="2、history.pushState()+popState"></a>2、history.pushState()+popState</h5><p>history是HTML5才有的新API,可以用来操作浏览器的 session history，pushState会增加一条新的<br>历史记录，而replaceState则会替换当前的历史记录。该方式不会在url中产生上面的#。<br>pushState和replaceState都接收三个参数，分别是：<br><strong>状态对象（state object）</strong>：一个JavaScript对象，与用pushState()方法创建的新历史记录条目关联。<br>    无论何时用户导航到新创建的状态，popstate事件都会被触发，并且事件对象的state属性都包含历史<br>    记录条目的状态对象的拷贝。<br><strong>标题（title）</strong>：FireFox浏览器目前会忽略该参数，虽然以后可能会用上。考虑到未来可能会对该方法<br>    进行修改，传一个空字符串会比较安全。或者，你也可以传入一个简短的标题，标明将要进入的状态。<br><strong>地址（URL）</strong>：新的历史记录条目的地址。浏览器不会在调用pushState()方法后加载该地址，但之后<br>    可能会试图加载，例如用户重启浏览器。新的URL不一定是绝对路径；如果是相对路径，它将以当<br>    前URL为基准；传入的URL与当前URL应该是同源的，否则，pushState()会抛出异常。该参数是可选<br>    的；不指定的话则为文档当前URL。<br>相同之处是两个 API 都会操作浏览器的历史记录，而不会引起页面的刷新</p>
+<h3 id="前端路由优缺点："><a href="#前端路由优缺点：" class="headerlink" title="前端路由优缺点："></a>前端路由优缺点：</h3><h5 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h5><p>1、没有网络延迟，用户体验好<br>2、在某些场景中用ajax请求，可以让页面无刷新，页面变了但Url没有变化，用户就不能复制到想要的地址，<br>    用前端路由做单页面网页就很好的解决了这个问题</p>
+<h5 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h5><p>使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存</p>
+
       
     </div>
     
@@ -331,6 +362,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/html/" rel="tag"># html</a>
+          
+        </div>
+      
 
       
       
@@ -340,8 +379,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/04/hexo插入图片/" rel="next" title="hexo插入图片">
-                <i class="fa fa-chevron-left"></i> hexo插入图片
+              <a href="/2018/08/01/前端路由原理/" rel="next" title="前端路由原理">
+                <i class="fa fa-chevron-left"></i> 前端路由原理
               </a>
             
           </div>
@@ -349,10 +388,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/01/前端路由原理/" rel="prev" title="前端路由原理">
-                前端路由原理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -404,8 +439,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -465,6 +509,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端路由试用场景："><span class="nav-number">1.</span> <span class="nav-text">前端路由试用场景：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端路由实现方式："><span class="nav-number">2.</span> <span class="nav-text">前端路由实现方式：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、window-location-hash-hashchange事件"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、window.location.hash+hashchange事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、history-pushState-popState"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、history.pushState()+popState</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端路由优缺点："><span class="nav-number">3.</span> <span class="nav-text">前端路由优缺点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点："><span class="nav-number">3.0.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点："><span class="nav-number">3.0.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
